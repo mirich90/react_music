@@ -7,6 +7,20 @@ import { Input } from "@mui/material";
 const MainPage = () => {
   const [tracks, setTracks] = useState(tracksList);
 
+  const runSearch = (query) => {
+    if (!query) {
+      return tracksList;
+    }
+
+    const lowerCaseQuery = query.toLowerCase();
+
+    return tracksList.filter(
+      (track) =>
+        track.title.toLowerCase().includes(lowerCaseQuery) ||
+        track.artists.toLowerCase().includes(lowerCaseQuery)
+    );
+  };
+
   const handleChange = (event) => {
     const foundTracks = runSearch(event.target.value);
     setTracks(foundTracks);
