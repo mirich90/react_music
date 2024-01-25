@@ -18,7 +18,7 @@ const Track = (track) => {
 
   return (
     <div className={cn(style.track, isCurrentTrack && style.playing)}>
-      <IconButton onClick={() => handleToggleAudio(track)}>
+      <IconButton className="icon" onClick={() => handleToggleAudio(track)}>
         {isCurrentTrack && isPlaying ? <Pause /> : <PlayArrow />}
       </IconButton>
 
